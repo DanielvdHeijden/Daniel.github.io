@@ -13,6 +13,7 @@ body {
 
   display: flex;
   flex-direction: column;
+  background-color: #262425;
 }
 
 main {
@@ -66,13 +67,15 @@ footer {
 
 @media (max-width: 600px) {
   nav {
-    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
   }
 
   main {
     padding: 1.5rem 0;
+  }
+  .sub-banners {
+    flex-direction: column;
   }
 }
 
@@ -158,8 +161,7 @@ footer {
 /* Mobiel */
 @media (max-width: 700px) {
   .sub-banner {
-    min-height: auto;
-    padding: 45px 20px;
+    max-height: 300px;
   }
 
   .logo-card {
@@ -183,4 +185,109 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: #262425;
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 18px 40px;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  text-decoration: none;
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: #999;
+}
+
+/* Navigatie */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.main-nav a {
+  position: relative;
+
+  color: #aaa;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: white;
+}
+
+/* lijntje onder menu */
+.main-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background: white;
+
+  transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.main-nav a.active {
+  color: white;
+}
+
+/* mobiel */
+@media (max-width: 600px) {
+  .header-inner {
+    padding: 18px 20px;
+  }
+
+  .main-nav {
+    gap: 20px;
+  }
+
+  .main-nav a {
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}
+
+.header-inner a:hover{
+  text-decoration: none;
 }

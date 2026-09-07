@@ -18,5 +18,25 @@ async function loadComponent(elementId, file) {
   }
 }
 
-loadComponent('header', 'components/header.html');
-loadComponent('footer', 'components/footer.html');
+function setActiveNavLink() {
+  const links = document.querySelectorAll('.main-nav a');
+
+  const currentPage =
+    window.location.pathname.split('/').pop() || 'index.html';
+
+  links.forEach(function (link) {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+}
+
+async function init() {
+  await loadComponent('header', 'components/header.html');
+
+  setActiveNavLink();
+
+  await loadComponent('footer', 'components/footer.html');
+}
+
+init();
