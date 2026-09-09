@@ -1,12 +1,10 @@
-// Uitgaande van: js/script.js
+// Dit bestand staat in js/script.js.
 const siteRoot = new URL('../', document.currentScript.src);
 
 async function loadComponent(elementId, file) {
   const element = document.getElementById(elementId);
 
-  if (!element) {
-    return;
-  }
+  if (!element) return;
 
   try {
     const response = await fetch(new URL(file, siteRoot));
@@ -17,7 +15,6 @@ async function loadComponent(elementId, file) {
 
     element.innerHTML = await response.text();
 
-    // Navigatielinks relatief aan de hoofdmap maken.
     element.querySelectorAll('a[href]').forEach(function (link) {
       const href = link.getAttribute('href');
 
