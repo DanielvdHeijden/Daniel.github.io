@@ -154,9 +154,48 @@
       </div>
     </section>
 
-    <section class="interactive-section" aria-labelledby="projects-title">
+   <section class="games-section" aria-labelledby="games-title">
   <div class="container">
-    <h2 id="projects-title">Mijn projecten</h2>
+    <p class="games-section__eyebrow">Naast het programmeren</p>
+
+    <h2 id="games-title">Even een andere uitdaging.</h2>
+
+    <p class="games-section__intro">
+      Als ik niet aan het bouwen ben, speel ik graag een potje.
+      Dit zijn drie games die ik graag speel.
+    </p>
+
+    <p id="games-status" role="status"></p>
+
+    <div id="games-list" class="games-grid"></div>
+
+    <button id="games-retry" class="btn-primary" type="button" hidden>
+      Opnieuw proberen
+    </button>
+
+    <p class="games-section__source">
+      Beschrijvingen via Wikipedia, onder
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+        CC BY-SA 4.0
+      </a>.
+    </p>
+
+    <noscript>Zet JavaScript aan om de games te laden.</noscript>
+  </div>
+</section>
+   <section
+  class="interactive-section projects-explorer"
+  aria-labelledby="explorer-title"
+>
+  <div class="container">
+    <p class="projects-explorer__eyebrow">Verder ontdekken</p>
+
+    <h2 id="explorer-title">Meer van mijn werk.</h2>
+
+    <p class="projects-explorer__intro">
+      Van schoolopdrachten tot eigen ideeën. Filter op categorie
+      en ontdek waar ik aan werk.
+    </p>
 
     <div class="project-controls">
       <div>
@@ -185,19 +224,7 @@
   </div>
 </section>
 
-<section class="interactive-section" aria-labelledby="github-title">
-  <div class="container">
-    <h2 id="github-title">Recent op GitHub</h2>
-    <p>Mijn laatst bijgewerkte openbare repositories.</p>
 
-    <p id="github-status" role="status"></p>
-    <ul id="github-list" class="github-list"></ul>
-
-    <button id="github-retry" type="button" hidden>
-      Opnieuw proberen
-    </button>
-  </div>
-</section>
 
 
   </main>

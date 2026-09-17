@@ -73,6 +73,7 @@ const projects = [
   }
 ];
 
+
 function showProjects() {
   const list = document.getElementById("project-list");
   const category = document.getElementById("project-filter").value;
@@ -114,10 +115,6 @@ function showProjects() {
   document.getElementById("project-status").textContent =
     selectedProjects.length + " projecten gevonden.";
 }
-
-
-// CONTACTFORMULIER
-
 
 function showError(field, errorId, message) {
   document.getElementById(errorId).textContent = message;
@@ -175,47 +172,112 @@ function checkForm(event) {
   }
 }
 
+const games = [
+  { title: "Rocket League", page: "Rocket League" },
+  { title: "Valorant", page: "Valorant" },
+  { title: "FC 26", page: "EA Sports FC 26" }
+];
 
-// GITHUB-PROJECTEN OPHALEN
-
-async function loadGithub() {
-  const list = document.getElementById("github-list");
-  const status = document.getElementById("github-status");
-  const button = document.getElementById("github-retry");
+async function loadGames() {
+  const list = document.getElementById("games-list");
+  const status = document.getElementById("games-status");
+  const button = document.getElementById("games-retry");
 
   list.replaceChildren();
-  status.textContent = "Projecten laden...";
+  status.textContent = "Games laden...";
   button.hidden = true;
 
-  try {
-    const response = await fetch(
-      "https://api.github.com/users/Danielvdheijden/repos?sort=updated&per_page=3"
-    );
+  let loaded = 0;
 
-    if (!response.ok) {
-      throw new Error("GitHub kon niet worden geladen.");
-    }
+  for (const game of games) {
+    try {
+      const url =
+        "https://en.wikipedia.org/w/api.php" +
+        "?action=query&format=json&formatversion=2&origin=*" +
+        "&prop=extracts|pageimages" +
+        "&exintro=1&explaintext=1&exsentences=2" +
+        "&piprop=thumbnail&pithumbsize=600&pilicense=any" +
+        "&redirects=1&titles=" + encodeURIComponent(game.page);
 
-    const repositories = await response.json();
+      const response = await fetch(url);
 
-    repositories.forEach(function (repository) {
-      const item = document.createElement("li");
+      if (!response.ok) {
+        throw new Error("Game kon niet worden geladen.");
+      }
+
+      const data = await response.json();
+
+      if (data.error || !data.query) {
+        throw new Error("Geen gamegegevens ontvangen.");
+      }
+
+      const page = data.query.pages[0];
+
+      if (page.missing) {
+        throw new Error("Game niet gevonden.");
+      }
+
+      const card = document.createElement("article");
+      card.className = "game-card";
+
+      const visual = document.createElement("div");
+      visual.className = "game-card__visual";
+
+      if (game.title === "Valorant") {
+        visual.classList.add("game-card__visual--logo");
+      }
+
+      // Zonder afbeelding tonen we de naam van de game.
+      visual.textContent = game.title;
+
+      if (page.thumbnail) {
+        const image = document.createElement("img");
+        image.src = page.thumbnail.source;
+        image.alt = game.title;
+        image.loading = "lazy";
+
+        image.addEventListener("error", function () {
+          visual.textContent = game.title;
+        });
+
+        visual.replaceChildren(image);
+      }
+
+      const content = document.createElement("div");
+      content.className = "game-card__content";
+
+      const title = document.createElement("h3");
+      title.textContent = game.title;
+
+      const description = document.createElement("p");
+      description.textContent =
+        page.extract || "Er is nog geen beschrijving beschikbaar.";
+      description.lang = "en";
+
       const link = document.createElement("a");
+      link.textContent = "Lees meer op Wikipedia ↗";
+      link.href =
+        "https://en.wikipedia.org/wiki/" +
+        encodeURIComponent(page.title.replaceAll(" ", "_"));
 
-      link.textContent = repository.name;
-      link.href = repository.html_url;
+      content.append(title, description, link);
+      card.append(visual, content);
+      list.append(card);
 
-      item.append(link);
-      list.append(item);
-    });
+      loaded++;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-    status.textContent = repositories.length + " repositories geladen.";
-  } catch (error) {
-    status.textContent = "Laden mislukt. Probeer het opnieuw.";
+  if (loaded === games.length) {
+    status.textContent = "";
+  } else {
+    status.textContent =
+      loaded + " van de 3 games geladen. Probeer het opnieuw.";
     button.hidden = false;
   }
 }
-
 
 // STARTEN
 
@@ -239,13 +301,13 @@ async function init() {
       .addEventListener("submit", checkForm);
   }
 
-  if (document.getElementById("github-list")) {
-    loadGithub();
+  if (document.getElementById("games-list")) {
+  loadGames();
 
-    document
-      .getElementById("github-retry")
-      .addEventListener("click", loadGithub);
-  }
+  document
+    .getElementById("games-retry")
+    .addEventListener("click", loadGames);
+}
 
   await loadComponent("header", "components/header.html");
   await loadComponent("footer", "components/footer.html");
