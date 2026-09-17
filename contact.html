@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Daniel</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/global.js" defer></script>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main>
+<section class="interactive-section" aria-labelledby="contact-title">
+  <div class="container">
+    <h2 id="contact-title">Neem contact op</h2>
+    <p>
+      Dit is een demoformulier. Je invoer wordt gecontroleerd,
+      maar er wordt nog geen bericht verstuurd.
+    </p>
+
+    <form id="contact-form" class="contact-form" novalidate>
+      <div class="form-field">
+        <label for="contact-name">Naam (verplicht)</label>
+        <input
+          type="text"
+          id="contact-name"
+          name="name"
+          autocomplete="name"
+          required
+          aria-describedby="name-error"
+        >
+        <p id="name-error" class="field-error"></p>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-email">E-mailadres (verplicht)</label>
+        <input
+          type="email"
+          id="contact-email"
+          name="email"
+          autocomplete="email"
+          required
+          aria-describedby="email-error"
+        >
+        <p id="email-error" class="field-error"></p>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-message">Bericht (verplicht)</label>
+        <p id="message-hint">Schrijf minimaal 10 tekens.</p>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="6"
+          required
+          minlength="10"
+          aria-describedby="message-hint message-error"
+        ></textarea>
+        <p id="message-error" class="field-error"></p>
+      </div>
+
+      <button type="submit">Controleer bericht</button>
+      <p id="contact-status" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+  <div id="footer"></div>
+</body>
+
+</html>

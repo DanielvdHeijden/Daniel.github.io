@@ -152,6 +152,53 @@
         </div>
       </div>
     </section>
+
+    <section class="interactive-section" aria-labelledby="projects-title">
+  <div class="container">
+    <h2 id="projects-title">Mijn projecten</h2>
+
+    <div class="project-controls">
+      <div>
+        <label for="project-filter">Categorie</label>
+        <select id="project-filter">
+          <option value="all">Alle projecten</option>
+          <option value="school">School</option>
+          <option value="werk">Werk</option>
+          <option value="zelfgemaakt">Zelfgemaakt</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="project-sort">Sorteren</label>
+        <select id="project-sort">
+          <option value="newest">Nieuwste eerst</option>
+          <option value="name">Naam A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <p id="project-status" role="status"></p>
+    <div id="project-list" class="project-grid"></div>
+
+    <noscript>Zet JavaScript aan om de projecten te bekijken.</noscript>
+  </div>
+</section>
+
+<section class="interactive-section" aria-labelledby="github-title">
+  <div class="container">
+    <h2 id="github-title">Recent op GitHub</h2>
+    <p>Mijn laatst bijgewerkte openbare repositories.</p>
+
+    <p id="github-status" role="status"></p>
+    <ul id="github-list" class="github-list"></ul>
+
+    <button id="github-retry" type="button" hidden>
+      Opnieuw proberen
+    </button>
+  </div>
+</section>
+
+
   </main>
 
   <div id="footer"></div>
