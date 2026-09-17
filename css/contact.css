@@ -1,0 +1,30 @@
+.contact-form {
+  max-width: 640px;
+  margin-top: 28px;
+}
+
+.form-field {
+  margin-bottom: 24px;
+}
+
+.field-error {
+  margin: 6px 0 0;
+  color: #a21b1b;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+.interactive-section [aria-invalid="true"] {
+  border: 2px solid #a21b1b;
+}
+
+#message-hint {
+  margin: 0 0 8px;
+  color: #4b5846;
+}
+
+#contact-status {
+  font-weight: 600;
+}
