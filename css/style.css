@@ -56,8 +56,8 @@ footer {
 
 @media (max-width: 600px) {
   nav {
-      align-items: center;
-      gap: 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
 
@@ -73,9 +73,7 @@ footer {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   width: 100%;
-
   background: #F5F5EF;
   backdrop-filter: blur(12px);
 }
@@ -150,19 +148,19 @@ footer {
 
 @media (max-width: 600px) {
   .header-inner {
-      padding: 18px 20px;
+    padding: 18px 20px;
   }
 
   .main-nav {
-      gap: 20px;
+    gap: 20px;
   }
 
   .main-nav a {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   .logo {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
 
@@ -175,12 +173,10 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 6px;
-
   min-height: 47px;
   padding: 12px 22px;
   border: 1px solid var(--hero-text);
   border-radius: 999px;
-
   background: var(--hero-text);
   color: #fff;
   font-size: 14px;
@@ -188,7 +184,6 @@ footer {
   line-height: 1.4;
   text-align: center;
   text-decoration: none;
-
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -243,7 +238,6 @@ footer {
   justify-content: space-between;
   gap: 24px;
   margin-top: 68px;
-
   font-size: 14px;
   line-height: 1.5;
 }
@@ -272,40 +266,40 @@ footer {
 }
 
 .portfolio-footer__btn {
-      margin-top: 28px;
-  }
+  margin-top: 28px;
+}
 
 @media (max-width: 760px) {
   .portfolio-footer {
-      padding: 48px 20px 32px;
+    padding: 48px 20px 32px;
   }
 
   .portfolio-footer__eyebrow {
-      margin-bottom: 24px;
-      font-size: 11px;
+    margin-bottom: 24px;
+    font-size: 11px;
   }
 
   .portfolio-footer h2 {
-      font-size: clamp(36px, 8vw, 52px);
+    font-size: clamp(36px, 8vw, 52px);
   }
 
   .portfolio-footer__bottom {
-      flex-wrap: wrap;
-      margin-top: 48px;
-      gap: 16px;
-      font-size: 12px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    gap: 16px;
+    font-size: 12px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .portfolio-footer__btn {
-      transition: none;
+    transition: none;
   }
 }
 
 @media (max-width: 760px) {
-  .contact-btn{
-      display: none;
+  .contact-btn {
+    display: none;
   }
 }
 
@@ -355,6 +349,6 @@ footer {
 
 @media (max-width: 540px) {
   .interactive-section {
-      padding: 40px 0;
+    padding: 40px 0;
   }
 }

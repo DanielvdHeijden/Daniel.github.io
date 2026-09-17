@@ -1,30 +1,281 @@
-.contact-form {
-  max-width: 640px;
-  margin-top: 28px;
+.contact-page {
+  padding: 48px 32px 72px;
+  background: #f6f6ef;
+  color: #18211d;
 }
 
-.form-field {
+.contact-page__eyebrow {
+  margin: 0 0 32px;
+  color: #58645d;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.contact-page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-page__content h1 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+
+.contact-page__intro {
+  max-width: 460px;
+  margin: 30px 0 0;
+  color: #58645d;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* Naam en symbool */
+
+.contact-page__about {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid #d9ded4;
+}
+
+.contact-page__symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: #d4ff65;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.contact-page__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.contact-page__role {
+  margin: 4px 0 0;
+  color: #58645d;
+  font-size: 13px;
+}
+
+/* Groene formulierkaart */
+
+.contact-card {
+  min-width: 0;
+  padding: 36px;
+  border-radius: 24px;
+  background: #244036;
+  color: #fff;
+}
+
+.contact-card__eyebrow {
+  margin: 0 0 18px;
+  color: #d4ff65;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.contact-card h2 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+.contact-card__description {
+  margin: 18px 0 0;
+  color: #d0dbd5;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Formuliervelden */
+
+.contact-form {
+  margin-top: 30px;
+}
+
+.contact-form .form-field {
   margin-bottom: 24px;
 }
 
-.field-error {
-  margin: 6px 0 0;
-  color: #a21b1b;
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.field-error:empty {
+.contact-form label span {
+  color: #d0dbd5;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #f6f6ef;
+  color: #18211d;
+  font: inherit;
+  font-size: 16px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #626d66;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 3px solid #d4ff65;
+  outline-offset: 4px;
+}
+
+.contact-form #message-hint {
+  margin: 0 0 10px;
+  color: #d0dbd5;
+  font-size: 13px;
+}
+
+/* Lokale uitvoering van je bestaande knop */
+
+.contact-form .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 48px;
+  padding: 13px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: #d4ff65;
+  color: #18211d;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.contact-form .btn-primary:hover {
+  background: #e1ff94;
+  transform: translateY(-2px);
+}
+
+.contact-form .btn-primary:focus-visible {
+  outline: 3px solid #d4ff65;
+  outline-offset: 4px;
+}
+
+/* Validatie */
+
+.contact-form .field-error {
+  margin: 8px 0 0;
+  color: #ffbdbd;
+  font-size: 13px;
+}
+
+.contact-form .field-error:empty,
+.contact-form #contact-status:empty {
   display: none;
 }
 
-.interactive-section [aria-invalid="true"] {
-  border: 2px solid #a21b1b;
+.contact-form [aria-invalid="true"] {
+  border-color: #b42318;
 }
 
-#message-hint {
-  margin: 0 0 8px;
-  color: #4b5846;
-}
-
-#contact-status {
+.contact-form #contact-status {
+  margin: 20px 0 0;
+  color: #fff;
+  font-size: 14px;
   font-weight: 600;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+  .contact-page__grid {
+    gap: 36px;
+  }
+
+  .contact-card {
+    padding: 28px;
+  }
+}
+
+/* Mobiel */
+
+@media (max-width: 760px) {
+  .contact-page {
+    padding: 32px 20px 48px;
+  }
+
+  .contact-page__eyebrow {
+    margin-bottom: 24px;
+    font-size: 11px;
+  }
+
+  .contact-page__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .contact-page__content h1 {
+    font-size: clamp(36px, 8vw, 56px);
+    letter-spacing: -1px;
+  }
+
+  .contact-page__intro {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+
+  .contact-page__about {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+
+  .contact-card {
+    padding: 28px 22px;
+  }
+
+  .contact-card h2 {
+    font-size: 30px;
+  }
+
+  .contact-form .btn-primary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form .btn-primary {
+    transition: none;
+  }
 }
