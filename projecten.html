@@ -7,7 +7,8 @@
 
   <title>Daniel</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/projecten.css">
   <script src="js/global.js" defer></script>
 </head>
 
@@ -152,6 +153,80 @@
         </div>
       </div>
     </section>
+
+   <section class="games-section" aria-labelledby="games-title">
+  <div class="container">
+    <p class="games-section__eyebrow">Naast het programmeren</p>
+
+    <h2 id="games-title">Even een andere uitdaging.</h2>
+
+    <p class="games-section__intro">
+      Als ik niet aan het bouwen ben, speel ik graag een potje.
+      Dit zijn drie games die ik graag speel.
+    </p>
+
+    <p id="games-status" role="status"></p>
+
+    <div id="games-list" class="games-grid"></div>
+
+    <button id="games-retry" class="btn-primary" type="button" hidden>
+      Opnieuw proberen
+    </button>
+
+    <p class="games-section__source">
+      Beschrijvingen via Wikipedia, onder
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+        CC BY-SA 4.0
+      </a>.
+    </p>
+
+    <noscript>Zet JavaScript aan om de games te laden.</noscript>
+  </div>
+</section>
+   <section
+  class="interactive-section projects-explorer"
+  aria-labelledby="explorer-title"
+>
+  <div class="container">
+    <p class="projects-explorer__eyebrow">Verder ontdekken</p>
+
+    <h2 id="explorer-title">Meer van mijn werk.</h2>
+
+    <p class="projects-explorer__intro">
+      Van schoolopdrachten tot eigen ideeën. Filter op categorie
+      en ontdek waar ik aan werk.
+    </p>
+
+    <div class="project-controls">
+      <div>
+        <label for="project-filter">Categorie</label>
+        <select id="project-filter">
+          <option value="all">Alle projecten</option>
+          <option value="school">School</option>
+          <option value="werk">Werk</option>
+          <option value="zelfgemaakt">Zelfgemaakt</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="project-sort">Sorteren</label>
+        <select id="project-sort">
+          <option value="newest">Nieuwste eerst</option>
+          <option value="name">Naam A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <p id="project-status" role="status"></p>
+    <div id="project-list" class="project-grid"></div>
+
+    <noscript>Zet JavaScript aan om de projecten te bekijken.</noscript>
+  </div>
+</section>
+
+
+
+
   </main>
 
   <div id="footer"></div>
