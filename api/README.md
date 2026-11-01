@@ -2,14 +2,22 @@
 
 Backend voor mijn portfoliosite: CRUD voor **projecten** en **blogposts**.
 
-## Gegevens
+## Gegevens student
+
+- **Naam:** Daniël van der Heijden
+- **Studentnummer:** [invullen]
+- **Klas:** [invullen]
+- **Repository:** https://github.com/DanielvdHeijden/Daniel.github.io
+
+## Technische keuzes
 
 - **.NET-versie:** .NET 10
 - **API-stijl:** controllers
 - **Codestructuur:** lagen
   - `Controllers/` – HTTP-afhandeling (routes en statuscodes)
   - `Services/` – applicatielogica en omzetting entiteit ↔ DTO
-  - `Data/` – `PortfolioDbContext` (EF Core) en `Migrations/`
+  - `Data/` – `PortfolioDbContext` (EF Core)
+  - `Migrations/` – EF Core-migratie die de database aanmaakt
   - `Models/` – entiteiten (`Project`, `Blogpost`)
   - `Dtos/` – invoer- en uitvoer-DTO's
 - **Database:** SQL Server LocalDB, aangemaakt met een EF Core-**migratie**
