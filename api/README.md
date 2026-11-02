@@ -5,8 +5,8 @@ Backend voor mijn portfoliosite: CRUD voor **projecten** en **blogposts**.
 ## Gegevens student
 
 - **Naam:** Daniël van der Heijden
-- **Studentnummer:** [invullen]
-- **Klas:** [invullen]
+- **Studentnummer:** 24137375
+- **Klas:** 4
 - **Repository:** https://github.com/DanielvdHeijden/Daniel.github.io
 
 ## Technische keuzes
